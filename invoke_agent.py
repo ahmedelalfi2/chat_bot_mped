@@ -34,7 +34,7 @@ class SqlAgent:
         athena_db = 'athena_db' #from user defined params
         s3stagingathena = 's3://athena-destination-store-mped/ ' 
         athena_wkgrp = 'primary' 
-        athena_connection_string = f"awsathena+rest://@{athena_url}:{athena_port}/{athena_db}?s3_staging_dir={s3stagingathena}/&work_group={athena_wkgrp}"
+        athena_connection_string = f"awsathena+rest://{aws_access_key_id}:{aws_secret_access_key}@{athena_url}:{athena_port}/{athena_db}?s3_staging_dir={s3stagingathena}/&work_group={athena_wkgrp}"
         athena_engine = create_engine(athena_connection_string, echo=True, )
         db = SQLDatabase(athena_engine)
 
